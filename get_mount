@@ -1,0 +1,16 @@
+#!/bin/sh
+# usage: get_mount [path]
+# returns: mount pount of given usb path
+	
+	pth=$1
+	dst_dir=$2
+	sleep 5
+	mountPoint="`df -h | grep $pth | tr -s ' ' | cut -d' ' -f6`"
+	if [ -d "$dst_dir" ]
+	then
+		cmd="cp -r $mountPoint/* $dst_dir"
+	else
+		mkdir $dst_dir
+		cmd="cp -r $mountPoint/* $dst_dir"
+	fi
+	eval $cmd

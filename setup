@@ -1,0 +1,17 @@
+#!/bin/sh
+# Use this to configure usbdump (specify dump dir, etc)
+
+	if [ $# = 0 ]
+	then
+		echo "usage: ./setup dump_dir"
+		exit 0
+	fi
+	cmd="python dbustest.py $1 &"
+	clear
+	eval $cmd
+			
+			
+			
+			
+	
+	
